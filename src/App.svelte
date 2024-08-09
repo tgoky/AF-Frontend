@@ -67,8 +67,8 @@
   justify-content: center;
   gap: 2rem;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.5);
-  width: 100%;
+ 
+  width: 100px;
   max-width: 1200px; /* Adjust this value to your desired max width */
   margin: 0 auto;
   position: absolute;

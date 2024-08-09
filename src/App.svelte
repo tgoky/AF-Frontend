@@ -4,8 +4,8 @@
 
 <main>
 	<header>
-		<h1>💧Aequor Finance</h1>
-		<p>Explore the depths of the ocean</p>
+		<h1> Aequor 💧 Finance</h1>
+		<p>Welcome to 💧 Aequor Finance</p>
 	</header>
 
 	<section class="ocean">
@@ -22,7 +22,7 @@
 		padding: 0;
 		overflow: hidden;
 		font-family: 'Montserrat', sans-serif;
-		background-color: #0e2f44; /* Deep ocean blue */
+    background: linear-gradient(to bottom, #006994, #2ecc71); 
 		color: #ffffff; /* White text */
 	}
 

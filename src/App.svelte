@@ -157,24 +157,6 @@
     }
   }
 
-  .raindrop-container {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .raindrop {
-    position: absolute;
-    top: -50px;
-    font-size: var(--size);
-    left: var(--left);
-    animation: drop 5s infinite ease-in;
-    animation-delay: calc(-5s * var(--i));
-  }
 
   @keyframes drop {
     0% {

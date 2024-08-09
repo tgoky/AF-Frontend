@@ -7,12 +7,13 @@
 		<h1> Aequor 💧 Finance</h1>
 		<p>Welcome to 💧 Aequor Finance</p>
 	</header>
+  <img src="/mrm.png" alt="Aeff" class="header-image" style="width: 300px;">
 
-	<section class="ocean">
+	<!-- <section class="ocean">
 		<div class="wave"></div>
 		<div class="wave"></div>
 		<div class="wave"></div>
-	</section>
+	</section> -->
 </main>
 
 <style>

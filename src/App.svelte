@@ -24,18 +24,7 @@
     <!-- Add more bubbles as needed -->
   </section>
 
-  <section class="raindrop-container">
-    <!-- Raindrops -->
-    <div class="raindrop" style="--i: 0; --size: 1rem; --left: 15%;"></div>
-    <div class="raindrop" style="--i: 1; --size: 1.5rem; --left: 25%;"></div>
-    <div class="raindrop" style="--i: 2; --size: 1rem; --left: 35%;"></div>
-    <div class="raindrop" style="--i: 3; --size: 1.2rem; --left: 45%;"></div>
-    <div class="raindrop" style="--i: 4; --size: 1rem; --left: 55%;"></div>
-    <div class="raindrop" style="--i: 5; --size: 1.4rem; --left: 65%;"></div>
-    <div class="raindrop" style="--i: 6; --size: 1rem; --left: 75%;"></div>
-    <div class="raindrop" style="--i: 7; --size: 1rem; --left: 85%;"></div>
-    <div class="raindrop" style="--i: 8; --size: 1rem; --left: 95%;"></div>
-  </section>
+  
 </main>
 
 <style>
@@ -165,10 +154,6 @@
     100% {
       top: 100vh;
     }
-  }
-
-  .raindrop::before {
-    content: "💧";
   }
 
 

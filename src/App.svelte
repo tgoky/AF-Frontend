@@ -1,6 +1,7 @@
-<script>
-  // No need for additional script in this case unless you want to dynamically add raindrops
-</script>
+<div id="loading-screen">
+  <div class="spinner"></div>
+  <p class="loading-text">Diving into ocean depths, scooping mermaids, swimming...</p>
+</div>
 
 <main>
   <nav class="menu-bar">
@@ -18,13 +19,9 @@
   <img src="/mrm.png" alt="fx logo" class="glow-effect" width="300px" />
 
   <section class="bubble-container">
-    <!-- Bubbles -->
     <div class="bubble" style="--i: 0; --size: 40px; --left: 10%;"></div>
     <div class="bubble" style="--i: 1; --size: 60px; --left: 20%;"></div>
-    <!-- Add more bubbles as needed -->
   </section>
-
-  
 </main>
 
 <style>
@@ -41,6 +38,43 @@
     color: #ffffff;
   }
 
+  #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #006994, #2ecc71);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 1s ease, visibility 1s ease;
+  }
+
+  #loading-screen .spinner {
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    border-top: 8px solid #fff;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+  }
+
+  #loading-screen .loading-text {
+    margin-top: 1rem;
+    font-family: 'Caesar Dressing', cursive;
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
   main {
     display: flex;
     flex-direction: column;
@@ -48,24 +82,31 @@
     justify-content: center;
     height: 100vh;
     text-align: center;
-    perspective: 1000px; /* 3D effect */
+    perspective: 1000px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease;
+  }
+
+  #loading-screen.hidden + main {
+    opacity: 1;
+    visibility: visible;
   }
 
   .menu-bar {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem;
- 
-  width: 100px;
-  max-width: 1200px; /* Adjust this value to your desired max width */
-  margin: 0 auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    width: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
 
   .menu-bar a {
     font-family: 'Caesar Dressing', cursive;
@@ -146,37 +187,28 @@
     }
   }
 
-
-  @keyframes drop {
-    0% {
-      top: -50px;
-    }
-    100% {
-      top: 100vh;
-    }
-  }
-
-
   .glow-effect {
     animation: glow 2s infinite alternate, float 5s infinite ease-in-out;
     filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
   }
 
   @keyframes glow {
-    0% {
-      filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
-    }
-    100% {
-      filter: drop-shadow(0 0 20px rgba(0, 255, 255, 1));
-    }
+     from { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8)); }
+     to { filter: drop-shadow(0 0 30px rgba(0, 255, 255, 1)); }
   }
 
   @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-30px);
-    }
+     0%, 100% { transform: translateY(0); }
+     50% { transform: translateY(-20px); }
   }
 </style>
+
+<script>
+ window.addEventListener('load', () => {
+  const loadingScreen = document.getElementById('loading-screen');
+  if (loadingScreen) {
+    loadingScreen.classList.add('hidden');
+  }
+});
+
+</script>

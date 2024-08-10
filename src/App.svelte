@@ -1,5 +1,12 @@
 <div id="loading-screen">
-  <div class="spinner"></div>
+  <img src="/Mermaid-PNG.png" alt="e" class="loading-image" width="300px"/>
+  <div class="wave">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
   <p class="loading-text">Diving into ocean depths, scooping mermaids, swimming...</p>
 </div>
 
@@ -200,6 +207,34 @@
   @keyframes float {
      0%, 100% { transform: translateY(0); }
      50% { transform: translateY(-20px); }
+  }
+
+  .wave {
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 15px;
+    height: 15px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: wave 1.2s linear infinite;
+  }
+
+  .dot:nth-child(1) { animation-delay: 0s; }
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+  .dot:nth-child(4) { animation-delay: 0.6s; }
+  .dot:nth-child(5) { animation-delay: 0.8s; }
+
+  @keyframes wave {
+    0%, 60%, 100% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-15px);
+    }
   }
 </style>
 

@@ -7,7 +7,7 @@
     <span class="dot"></span>
     <span class="dot"></span>
   </div>
-  <p id="loading-text" class="loading-text">Diving into ocean depths, scooping mermaids, swimming...</p>
+  <p id="loading-text" class="loading-text">welcome to aequor finance ...</p>
   <div class="progress-bar">
     <div class="progress-fill"></div>
   </div>

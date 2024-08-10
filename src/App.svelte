@@ -1,5 +1,5 @@
 <div id="loading-screen">
-  <img src="/Mermaid-PNG.png" alt="e" class="loading-image" width="300px"/>
+  <img src="/mem2.PNG" alt="e" class="loading-image" width="300px"/>
   <div class="wave">
     <span class="dot"></span>
     <span class="dot"></span>
@@ -140,7 +140,7 @@
 
   .menu-bar a {
     font-family: 'Caesar Dressing', cursive;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #ffffff;
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -153,7 +153,7 @@
   }
 
   header h1 {
-    font-size: 4rem;
+    font-size: 2.3rem;
     text-transform: uppercase;
     font-family: 'Caesar Dressing', cursive;
     letter-spacing: 0.1em;
@@ -163,7 +163,7 @@
 
   header p {
     font-family: 'Caesar Dressing', cursive;
-    font-size: 1.5rem;
+    font-size: .9rem;
     margin-top: 0.5rem;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
   }

@@ -23,7 +23,7 @@
 
   <header>
     <h1>Aequor 💧 Finance</h1>
-    <p>Welcome to 💧 Aequor Finance</p>
+
   </header>
 
   <img src="/mrm.png" alt="fx logo" class="glow-effect" width="300px" />

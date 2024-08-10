@@ -7,7 +7,10 @@
     <span class="dot"></span>
     <span class="dot"></span>
   </div>
-  <p class="loading-text">Diving into ocean depths, scooping mermaids, swimming...</p>
+  <p id="loading-text" class="loading-text">Diving into ocean depths, scooping mermaids, swimming...</p>
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
+  </div>
 </div>
 
 <main>
@@ -68,6 +71,24 @@
     height: 80px;
     animation: spin 2s linear infinite;
   }
+
+
+  .progress-bar {
+  width: 80%;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(to right, #00c853, #006994);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
 
   #loading-screen .loading-text {
     margin-top: 1rem;
@@ -217,7 +238,7 @@
   .dot {
     width: 15px;
     height: 15px;
-    background-color: #ffffff;
+    background: linear-gradient(to right, #ffffff, #00c853); 
     border-radius: 50%;
     animation: wave 1.2s linear infinite;
   }
@@ -239,11 +260,48 @@
 </style>
 
 <script>
- window.addEventListener('load', () => {
+window.addEventListener('load', () => {
   const loadingScreen = document.getElementById('loading-screen');
-  if (loadingScreen) {
-    loadingScreen.classList.add('hidden');
+  const progressFill = document.querySelector('.progress-fill');
+  const loadingText = document.getElementById('loading-text');
+  const mainContent = document.querySelector('main');
+
+  if (!loadingScreen || !progressFill || !loadingText || !mainContent) {
+    console.error('One or more elements not found on the page.');
+    return;
   }
+
+  let progress = 0;
+  const progressSteps = [
+    { percentage: 15, text: "Diving into ocean depths" },
+    { percentage: 30, text: "Scooping mermaids" },
+    { percentage: 45, text: "Swimming" },
+    { percentage: 60, text: "Diving" },
+    { percentage: 75, text: "Almost at ocean depth" },
+    { percentage: 100, text: "Meeting Poseidon" },
+  ];
+
+  const progressInterval = setInterval(() => {
+    progress += 1;
+    progressFill.style.width = `${progress}%`;
+
+    const step = progressSteps.find(step => step.percentage === progress);
+    if (step) {
+      loadingText.textContent = step.text;
+    }
+
+    if (progress === 100) {
+      clearInterval(progressInterval);
+      // Delay for a moment before hiding the loading screen
+      setTimeout(() => {
+        loadingScreen.style.opacity = '0';
+        loadingScreen.style.visibility = 'hidden';
+        mainContent.style.opacity = '1';
+        mainContent.style.visibility = 'visible';
+      }, 500); // Adjust delay if needed
+    }
+  }, 50); // Adjust the speed of progress fill as needed
 });
+
 
 </script>

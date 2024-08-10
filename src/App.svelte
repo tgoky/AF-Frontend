@@ -40,13 +40,15 @@
   @import url('https://fonts.googleapis.com/css?family=Caesar+Dressing&display=swap');
 
   body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(to bottom, #006994, #2ecc71);
-    color: #ffffff;
-  }
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  background: url('/oceandeep.PNG') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+}
+
 
   #loading-screen {
     position: fixed;
@@ -54,7 +56,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #006994, #2ecc71);
+    background: url('/oceandeep.PNG') no-repeat center center fixed;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -21,6 +21,11 @@
     "vite": "^5.4.0"
   },
   "dependencies": {
-    "svelte-navigator": "^3.2.2"
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-svelte": "^0.427.0",
+    "svelte-motion": "^0.12.2",
+    "svelte-navigator": "^3.2.2",
+    "tailwind-merge": "^2.4.0"
   }
 }

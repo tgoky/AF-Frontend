@@ -1,3 +1,6 @@
+
+
+
 <div id="loading-screen">
   <img src="/mem2.PNG" alt="e" class="loading-image" width="300px"/>
   <div class="wave">
@@ -21,12 +24,15 @@
     <a href="#bank">Bank</a>
   </nav>
 
+
+
   <header>
-    <h1>Aequor 💧 Finance</h1>
+    <h1 >Aequor 💧 Finance</h1>
 
   </header>
 
   <img src="/mrm.png" alt="fx logo" class="glow-effect" width="300px" />
+
 
   <section class="bubble-container">
     <div class="bubble" style="--i: 0; --size: 40px; --left: 10%;"></div>
@@ -124,23 +130,29 @@
   }
 
   .menu-bar {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
-    width: 100px;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-  }
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  
+  /* New border styles */
+  border: 4px solid #ffffff; /* Adjust color and thickness as needed */
+  border-radius: 15px; /* Adjust border-radius as needed */
+  background-color: rgba(0, 0, 0, 0.3); /* Optional: Add background color */
+}
+
 
   .menu-bar a {
     font-family: 'Caesar Dressing', cursive;
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: #ffffff;
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -153,7 +165,7 @@
   }
 
   header h1 {
-    font-size: 2.3rem;
+    font-size: 1.8rem;
     text-transform: uppercase;
     font-family: 'Caesar Dressing', cursive;
     letter-spacing: 0.1em;
@@ -259,6 +271,8 @@
       transform: translateY(-15px);
     }
   }
+
+  
 </style>
 
 <script>
@@ -304,6 +318,10 @@ window.addEventListener('load', () => {
     }
   }, 50); // Adjust the speed of progress fill as needed
 });
+
+
+
+
 
 
 </script>

@@ -86,9 +86,34 @@
   display: block; /* Center the image if the container is narrower */
   margin: 0 auto; 
   /* Center the image within the container */
-  margin-top: -9%;
+  margin-top: -14%;
   object-fit: contain; /* Fit the image within the container while preserving aspect ratio */
   border-radius: 10px; /* Match the border radius of the container */
+  z-index: 2; /* Higher z-index to place it in front */
+}
+
+.countdown-container {
+    position: absolute; /* Position it absolutely within the container */
+    top: 50%; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center vertically and horizontally */
+    text-align: center;
+    z-index: 1; /* Lower z-index to send it backward */
+
+    color: rgba(255, 255, 255, 0.8); /* Semi-transparent white text */
+}
+
+#countdown {
+    margin-top: -30px;
+    display: flex; /* Use flexbox for horizontal alignment */
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-family: 'Caesar Dressing', cursive;
+}
+
+#countdown span {
+  font-weight: bold;
+  color: #00c853;
 }
 
      
@@ -114,7 +139,13 @@
     
       <div class="docs-container">
         
-      
+        <div class="countdown-container">
+            
+            <div id="countdown">
+                <span id="time">{formattedTime}</span>
+            </div>
+          </div>
+          
         <img src="/presale.gif" alt="e" class="loading-image" />
           <!-- Add SVG fish animation here -->
           <svg class="swimming-fish" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" width="100" height="50">
@@ -122,3 +153,35 @@
           </svg>
       
       </div>
+
+
+      <script lang="ts">
+        import { onMount } from "svelte";
+        
+        let formattedTime: string = "";
+      
+        onMount(() => {
+          const countdownDate = new Date("August 28, 2024 00:00:00 UTC").getTime();
+      
+          const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+      
+            if (distance < 0) {
+              clearInterval(interval);
+              formattedTime = "00:00:00";
+              return;
+            }
+      
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+            formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+          };
+      
+          updateCountdown(); // Initial call to display immediately
+          const interval = setInterval(updateCountdown, 1000);
+        });
+      </script>
+      

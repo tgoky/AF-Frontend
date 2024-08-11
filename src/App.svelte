@@ -133,7 +133,7 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-  padding: 1rem;
+  padding: 1.3rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -142,6 +142,7 @@
   left: 0;
   right: 0;
   z-index: 10;
+  margin-left: -55px; 
   
   /* New border styles */
   border: 4px solid #ffffff; /* Adjust color and thickness as needed */
@@ -150,19 +151,22 @@
 }
 
 
-  .menu-bar a {
-    font-family: 'Caesar Dressing', cursive;
-    font-size: 1rem;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
+.menu-bar a {
+  font-family: 'Caesar Dressing', cursive;
+  font-size: 1rem;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+  border-radius: 5px; /* Optional: Add border-radius for smoother corners */
+}
 
-  .menu-bar a:hover {
-    transform: translateY(-10px);
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
-  }
+.menu-bar a:hover {
+  background-color: #006620; /* Deep blue background color on hover */
+  transform: translateY(-10px);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
+  border-radius: 30px;
+}
 
   header h1 {
     font-size: 1.8rem;

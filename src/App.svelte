@@ -1,6 +1,5 @@
 
 
-
 <div id="loading-screen">
   <img src="/mem2.PNG" alt="e" class="loading-image" width="300px"/>
   <div class="wave">
@@ -33,12 +32,35 @@
 
   <img src="/mrm.png" alt="fx logo" class="glow-effect" width="300px" />
 
+  
+
+  <section class="bubble-container">
+    <div class="bubble" style="--i: 0; --size: 40px; --left: 10%;"></div>
+    <div class="bubble" style="--i: 1; --size: 60px; --left: 20%;"></div>
+  </section>
+
+</main>
+
+<main id="main2">
+  <nav class="menu-bar">
+    <a href="#docs">Docs</a>
+    <a href="#stake">Stake</a>
+    <a href="#social">Social</a>
+    <a href="#bank">Bank</a>
+  </nav>
+
+  <header>
+    <h1>Aequor 💧 Finance</h1>
+  </header>
+
+  <img src="/mrm.png" alt="fx2 logo" class="glow-effect" width="300px" />
 
   <section class="bubble-container">
     <div class="bubble" style="--i: 0; --size: 40px; --left: 10%;"></div>
     <div class="bubble" style="--i: 1; --size: 60px; --left: 20%;"></div>
   </section>
 </main>
+
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Splash:wght@400&display=swap');
@@ -137,12 +159,12 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  margin-left: -55px; 
+  margin-left: -27px; 
   
   /* New border styles */
   border: 4px solid #ffffff; /* Adjust color and thickness as needed */
@@ -276,6 +298,41 @@
     }
   }
 
+  main, #main2 {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+
+main.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#main2.visible {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#main2 {
+  display: none; /* Initially hidden */
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* When the .visible class is added, display main2 */
+
+
   
 </style>
 
@@ -285,8 +342,9 @@ window.addEventListener('load', () => {
   const progressFill = document.querySelector('.progress-fill');
   const loadingText = document.getElementById('loading-text');
   const mainContent = document.querySelector('main');
+  const main2Content = document.getElementById('main2');
 
-  if (!loadingScreen || !progressFill || !loadingText || !mainContent) {
+  if (!loadingScreen || !progressFill || !loadingText || !mainContent || !main2Content) {
     console.error('One or more elements not found on the page.');
     return;
   }
@@ -318,14 +376,42 @@ window.addEventListener('load', () => {
         loadingScreen.style.visibility = 'hidden';
         mainContent.style.opacity = '1';
         mainContent.style.visibility = 'visible';
+        main2Content.style.opacity = '0';
+        main2Content.style.visibility = 'hidden';
       }, 500); // Adjust delay if needed
     }
   }, 50); // Adjust the speed of progress fill as needed
 });
 
+let lastScrollTop = 0;
 
+window.addEventListener('scroll', () => {
+  const main = document.querySelector('main');
+  const main2 = document.getElementById('main2');
+  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
+  if (main && main2) {
+    if (currentScroll > lastScrollTop) {
+      // Scrolling down
+      main.style.opacity = '0';
+      main.style.visibility = 'hidden';
+      main2.style.opacity = '1';
+      main2.style.visibility = 'visible';
+    } else {
+      // Scrolling up
+      main.style.opacity = '1';
+      main.style.visibility = 'visible';
+      main2.style.opacity = '0';
+      main2.style.visibility = 'hidden';
+    }
+  } else {
+    console.error('Main or main2 element not found.');
+  }
+
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+});
 
 
 
 </script>
+

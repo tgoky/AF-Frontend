@@ -1,5 +1,6 @@
 
 
+
 <div id="loading-screen">
   <img src="/mem2.PNG" alt="e" class="loading-image" width="300px"/>
   <div class="wave">
@@ -17,7 +18,7 @@
 
 <main>
   <nav class="menu-bar">
-    <a href="#docs">Docs</a>
+    <a href="/src/docs.svelte">Docs</a>
     <a href="#stake">Stake</a>
     <a href="#social">Social</a>
     <a href="#bank">Bank</a>

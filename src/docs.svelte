@@ -1,14 +1,5 @@
 <style>
-   
-   :global(body) {
-    margin: 0;
-    padding: 0;
-    background: url('/oceandeep.PNG') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Splash', sans-serif;
-    height: 100vh; /* Ensure the background covers the entire viewport */
-    overflow: hidden; /* Optional: Prevent scrolling */
-  }
+
    
    .docs-container {
       padding: 2rem;

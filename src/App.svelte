@@ -1,6 +1,4 @@
 
-
-
 <div id="loading-screen">
   <img src="/mem2.PNG" alt="e" class="loading-image" width="300px"/>
   <div class="wave">
@@ -18,11 +16,19 @@
 
 <main>
   <nav class="menu-bar">
-    <a href="/src/docs.svelte">Docs</a>
-    <a href="#stake">Stake</a>
-    <a href="#social">Social</a>
-    <a href="#bank">Bank</a>
+   
   </nav>
+<Router>
+  <nav class="menu-bar">
+    <Link to="/docs" style={{ color: 'white'}} class="menu-link">Docs</Link>
+    <Link to="/stake" style={{ color: 'white' }} class="menu-link">Stake</Link>
+    <Link to="/social" style={{ color: 'white' }} class="menu-link">Social</Link>
+    <Link to="/bank" style={{ color: 'white' }} class="menu-link">Presale</Link>
+  </nav>
+
+  <Route path="/docs" component={Docs} />
+  <Route path="/bank" component={Bank} />
+</Router>
 
 
 
@@ -94,6 +100,10 @@
     transition: opacity 1s ease, visibility 1s ease;
   }
 
+  .menu-bar:hover {
+    background-color: rgb(5, 67, 79); /* Background color on hover */
+    border: 8px solid #075c1c;
+  }
   #loading-screen .spinner {
     border: 8px solid rgba(255, 255, 255, 0.2);
     border-top: 8px solid #fff;
@@ -101,6 +111,16 @@
     width: 80px;
     height: 80px;
     animation: spin 2s linear infinite;
+  }
+
+  .menu-link {
+    color: white;
+    text-decoration: none;
+  }
+
+  .menu-link:hover {
+    color: #00c853; /* Example hover color */
+    text-decoration: underline; /* Example hover effect */
   }
 
 
@@ -125,7 +145,7 @@
     margin-top: 1rem;
     font-family: 'Caesar Dressing', cursive;
     font-size: 1.5rem;
-    color: #ffffff;
+    color: #00c853;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
   }
 
@@ -134,6 +154,17 @@
     100% { transform: rotate(360deg); }
   }
 
+  .link {
+  color: #d83939;
+  text-decoration: none ;
+/* Optional: removes underline */
+}
+
+
+
+.link:hover {
+  color: #ffffff; /* Keeps the text white on hover */
+}
   main {
     display: flex;
     flex-direction: column;
@@ -151,7 +182,6 @@
     opacity: 1;
     visibility: visible;
   }
-
   .menu-bar {
   display: flex;
   justify-content: center;
@@ -165,23 +195,24 @@
   left: 0;
   right: 0;
   z-index: 10;
-  margin-left: -27px; 
+  margin-left: -27px;
+  color: white;
   
-  /* New border styles */
   border: 4px solid #ffffff; /* Adjust color and thickness as needed */
   border-radius: 15px; /* Adjust border-radius as needed */
   background-color: rgba(0, 0, 0, 0.3); /* Optional: Add background color */
 }
 
 
+
 .menu-bar a {
   font-family: 'Caesar Dressing', cursive;
   font-size: 1rem;
-  color: #ffffff;
+  color: #ffffff; /* Ensure the text is white */
   text-decoration: none;
   padding: 0.5rem 1rem;
   transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
-  border-radius: 5px; /* Optional: Add border-radius for smoother corners */
+  border-radius: 5px;
 }
 
 .menu-bar a:hover {
@@ -196,6 +227,7 @@
     text-transform: uppercase;
     font-family: 'Caesar Dressing', cursive;
     letter-spacing: 0.1em;
+     color: #00c853;
     text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
     animation: pulse 2s infinite;
   }
@@ -412,7 +444,10 @@ window.addEventListener('scroll', () => {
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
 });
 
-
+import { Router, Route, Link } from "svelte-navigator";
+import Docs from '../src/docs.svelte';
+import Bank from '../src/bank.svelte';
 
 </script>
+
 
